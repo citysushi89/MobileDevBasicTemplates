@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/dropdown_menu_multiple_dymanic.dart';
+import 'screens/basic_dropdowns_dynamic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         routes: {
           MyHomePage.id: (context) => MyHomePage(),
           DropdownMenuMultipleDynamic.id: (context) =>
-              DropdownMenuMultipleDynamic(title: 'Dropdown Menus')
+              DropdownMenuMultipleDynamic(title: 'Dropdown Menus'),
+          BasicDropdownDynamic.id: (context) => BasicDropdownDynamic(),
         });
   }
 }
@@ -50,11 +52,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
+                    BasicDropdownDynamic.id,
+                  );
+                  print('pressed');
+                },
+                child: Text('Basic Dropdown menu page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
                     DropdownMenuMultipleDynamic.id,
                   );
                   print('pressed');
                 },
-                child: Text('Dropdown menu page'),
+                child: Text('Dropdown menu page fron stackoverflow'),
               )
             ],
           ),
